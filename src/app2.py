@@ -39,8 +39,8 @@ for row in result:
 # result = z.update_vacation()
 # print(result) 
 
-x=VacationLogic()
-result=x.get_vacation_by_country(country="Germany")
-for row in result:
-    print (row)
+# x=VacationLogic()
+# result=x.get_vacation_by_country(country="Germany")
+# for row in result:
+#     print (row)
 

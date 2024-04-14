@@ -52,7 +52,7 @@ class VacationLogic :
         return CountryModel.dictionaries_to_vacations(result)
       else:
         return None
-
+    '''
     def get_vacation_by_country_v2(self, country):
       sql = "SELECT retreat.vacations.vacationId,retreat.vacations.v_description,retreat.vacations.start_date,retreat.vacations.last_day_date,retreat.vacations.price,retreat.vacations.vacation_pic,retreat.vacations.countryId,retreat.countries.country   FROM retreat.vacations left join retreat.countries  on retreat.vacations.countryId=retreat.countries.countryId WHERE country = %s"
       params = (country,)
@@ -61,7 +61,7 @@ class VacationLogic :
         return (result)
       else:
         return None
-    
+       '''
     def get_vacation_by_price(self, price):
       sql = "SELECT * FROM retreat.vacations WHERE price <= %s"
       params = (price,)
@@ -69,9 +69,13 @@ class VacationLogic :
       results = VacationModel.dictionary_to_vacation(result)
       return results
    
-    def update_vacation_price(self):
-        pass
-
+   
+    def update_vacation_price(self, vacationId = None, price = None ):
+        sql = "UPDATE vacations SET price = %s WHERE vacationId = %s"
+        params = (vacationId,price)
+        row_count = self.dal.update(sql, params)
+        return row_count
+    
     def get_vacation_by_date(self, start_date, end_date):
        sql = "SELECT * FROM retreat.vacations WHERE date BETWEEN %s AND %s"
        params = (start_date, end_date)
@@ -79,9 +83,12 @@ class VacationLogic :
        results = VacationModel.dictionary_to_vacation(result)
        return results
     
-    def update_vacation_date(self):
-         pass
-     
+    
+    def update_vacation_date(self, vacationId = None,start_date = None, last_day_date = None ):
+        sql = "UPDATE vacations SET start_date = %s last_day_date= %s WHERE vacationId = %s"
+        params = (vacationId,start_date ,last_day_date)
+        row_count = self.dal.update(sql, params)
+        return row_count 
     
 
 
