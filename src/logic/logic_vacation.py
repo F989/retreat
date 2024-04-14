@@ -63,30 +63,30 @@ class VacationLogic :
         return None
        '''
     def get_vacation_by_price(self, price):
-      sql = "SELECT * FROM retreat.vacations WHERE price <= %s"
+      sql = "SELECT * FROM retreat.vacations WHERE price >= %s"
       params = (price,)
       result = self.dal.get_table(sql, params)
-      results = VacationModel.dictionary_to_vacation(result)
+      results = VacationModel.dictionaries_to_vacations(result)
       return results
    
    
-    def update_vacation_price(self, vacationId = None, price = None ):
+    def update_vacation_price(self,vacationId = None, price = None ):
         sql = "UPDATE vacations SET price = %s WHERE vacationId = %s"
-        params = (vacationId,price)
+        params = (price,vacationId)
         row_count = self.dal.update(sql, params)
         return row_count
     
-    def get_vacation_by_date(self, start_date, end_date):
-       sql = "SELECT * FROM retreat.vacations WHERE date BETWEEN %s AND %s"
-       params = (start_date, end_date)
+    def get_vacation_by_date(self, vacationId=None ,start_date=None, last_day_date=None):
+       sql = "SELECT * FROM retreat.vacations WHERE vacationId = %s AND date BETWEEN %s AND %s"
+       params = (vacationId,start_date, last_day_date)
        result = self.dal.get_table(sql, params)
-       results = VacationModel.dictionary_to_vacation(result)
+       results = VacationModel.dictionaries_to_vacations(result)
        return results
     
     
     def update_vacation_date(self, vacationId = None,start_date = None, last_day_date = None ):
-        sql = "UPDATE vacations SET start_date = %s last_day_date= %s WHERE vacationId = %s"
-        params = (vacationId,start_date ,last_day_date)
+        sql = "UPDATE vacations SET start_date = %s, last_day_date = %s WHERE vacationId = %s"
+        params = (start_date ,last_day_date,vacationId)
         row_count = self.dal.update(sql, params)
         return row_count 
     

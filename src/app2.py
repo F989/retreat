@@ -44,3 +44,20 @@ for row in result:
 # for row in result:
 #     print (row)
 
+# p=VacationLogic()
+# result=p.get_vacation_by_price(price="15000")
+# for vacation in result:
+#  print (vacation)
+
+# up = VacationLogic()
+# result = up.update_vacation_price(price="4000",vacationId="57")
+# print(result) 
+'''
+d=VacationLogic()
+result=d.get_vacation_by_date(vacationId="",start_date="", last_day_date="")
+for vacation in result:
+  print (vacation)
+'''
+# ud = VacationLogic()
+# result = ud.update_vacation_date(start_date="2024-06-02", last_day_date="2024-06-09",vacationId="57")
+# print(result) 
