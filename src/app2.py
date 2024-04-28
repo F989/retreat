@@ -1,6 +1,7 @@
 
-from logic.logic_vacation import *
-from logic.logic_user import *
+from test_facade import *
+
+
 
 
 '''
@@ -23,12 +24,12 @@ d.close()
 
 
 '''
-'''
-x = VacationLogic()
-result = x.get_all_vacations()
-for row in result:
-    print (row)
-'''
+
+# x = VacationLogic()
+# result = x.get_all_vacations()
+# for row in result:
+#     print (row)
+
 # y = VacationLogic()
 # result = y.create_new_vacation("5 star hotel,snowy mountain view,half board" ,"2024-07-17","2024-07-14","14000","16.jpg","6")
 # print(result)
@@ -52,12 +53,45 @@ for row in result:
 # up = VacationLogic()
 # result = up.update_vacation_price(price="4000",vacationId="57")
 # print(result) 
-'''
-d=VacationLogic()
-result=d.get_vacation_by_date(vacationId="",start_date="", last_day_date="")
-for vacation in result:
-  print (vacation)
-'''
+
+# d=VacationLogic()
+# result=d.get_all_vacations_by_date()
+# for vacation in result:
+#   print (vacation)
+
+# vacation_facade=VacationFacade()
+# result=vacation_facade.get_future_vacations(start_date="2024-05-04",last_day_date="2024-05-18",vacationId=58)
+# for vacation in result:
+#   print (vacation)
+
+# d=VacationLogic()
+# result=d.get_all_vacations_by_date(start_date="2024-06-02")
+# for vacation in result:
+#   print (vacation)
+
 # ud = VacationLogic()
-# result = ud.update_vacation_date(start_date="2024-06-02", last_day_date="2024-06-09",vacationId="57")
+# result = ud.update_vacation_date(start_date="2024-06-04", last_day_date="2024-06-15",vacationId=57)
 # print(result) 
+
+# vacation_facade = VacationFacade()
+# result = vacation_facade.get_all_vacations()
+# for row in result:
+#     print(row)
+# x = VacationFacade()
+
+# Use the instance method by calling it on the instance 'x'
+
+
+# x=VacationFacade()
+# print(x.price_pattern_not_valid("abc"))
+# price = '19.99'
+# if x.price_pattern_not_valid(price):
+#     print(f'The price {price} is not valid!')
+# else:
+#     print(f'The price {price} is valid!')
+# x =VacationLogic()
+# result=x.countryId_does_not_exist(16)
+# print(result)
+x=Test()
+result=x.turn_on_all_tests()
+print(result)

@@ -19,13 +19,15 @@ class CountryModel:
     
     @staticmethod
     def dictionary_to_vacation(dictionary):
-        vacationId = dictionary["vacationId"]
-        country =  dictionary["country"]
-        v_description =  dictionary["v_description"]
-        start_date =  dictionary["start_date"]
-        last_day_date =  dictionary["last_day_date"]
-        price =  dictionary["price"]
-        vacation_pic =  dictionary["vacation_pic"]
+        if dictionary is None:#to prevent system crash when sql has no result
+            return None
+        vacationId = dictionary.get("vacationId")
+        country =  dictionary.get("country")
+        v_description =  dictionary.get("v_description")
+        start_date =  dictionary.get("start_date")
+        last_day_date =  dictionary.get("last_day_date")
+        price =  dictionary.get("price")
+        vacation_pic =  dictionary.get("vacation_pic")
         vacation = CountryModel(vacationId,country,v_description,start_date,last_day_date,price,vacation_pic )
         return vacation
 
@@ -33,9 +35,9 @@ class CountryModel:
 
     @staticmethod
     def dictionaries_to_vacations(list_of_dictionary):
-        vacations = [] 
+        vacations = () 
         for item in list_of_dictionary:
             vacation = CountryModel.dictionary_to_vacation(item)
             vacations.append(vacation)
         return vacations
-   
+      

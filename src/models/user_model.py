@@ -8,28 +8,34 @@ class UserModel:
         self.Password = Password
         self.roleId = roleId
 
-    def ___str__(self):
-        return (f"userId: {self.userId},fname: {self.fname},lname: {self.lname},Email: {self.Email},Password: {self.password},roleId: {self.roleId} ")
+    def __str__(self):
+        return (f"userId: {self.userId},fname: {self.fname},lname: {self.lname},Email: {self.Email},Password: {self.Password},roleId: {self.roleId} ")
 
     @staticmethod
-    def dictionary_to_user(dictionary,):
-        userId = dictionary["userId"]
-        fname = dictionary['fname']
-        lname = dictionary['lname']
-        Email = dictionary['Email']
-        password = dictionary['password']
-        roleId = dictionary['roleId']
-        user = UserModel(userId,fname,lname,Email,password,roleId)
+    def dictionary_to_user(dictionary):
+        if dictionary is None:#to prevent system crash when sql has no result
+            return None
+        userId = dictionary.get("userId")  
+        fname = dictionary.get('fname')
+        lname = dictionary.get('lname')
+        Email = dictionary.get('Email')
+        Password = dictionary.get('Password')
+        roleId = dictionary.get('roleId')
+        user = UserModel(userId, fname, lname, Email, Password, roleId)
         return user
 
+ 
+    
     @staticmethod
     def dictionaries_to_users(list_of_dictionary):
         users = []
         for item in list_of_dictionary:
             user = UserModel.dictionary_to_user(item)
             users.append(user)
-            return users
-        
+        return users
+
+ 
+           
     
 
 

@@ -1,4 +1,3 @@
-
 class VacationModel :
 
     def __init__(self,vacationId,countryId,v_description,start_date,last_day_date,price,vacation_pic):
@@ -18,13 +17,15 @@ class VacationModel :
     
     @staticmethod
     def dictionary_to_vacation(dictionary):
-        vacationId = dictionary["vacationId"]
-        countryId =  dictionary["countryId"]
-        v_description =  dictionary["v_description"]
-        start_date =  dictionary["start_date"]
-        last_day_date =  dictionary["last_day_date"]
-        price =  dictionary["price"]
-        vacation_pic =  dictionary["vacation_pic"]
+        if dictionary is None:#to prevent system crash when sql has no result
+            return None
+        vacationId = dictionary.get("vacationId")
+        countryId =  dictionary.get("countryId")
+        v_description =  dictionary.get("v_description")
+        start_date =  dictionary.get("start_date")
+        last_day_date =  dictionary.get("last_day_date")
+        price =  dictionary.get("price")
+        vacation_pic =  dictionary.get("vacation_pic")
         vacation = VacationModel(vacationId,countryId,v_description,start_date,last_day_date,price,vacation_pic )
         return vacation
 
