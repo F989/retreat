@@ -2,9 +2,6 @@ from facades.facade_vacation import *
 from facades.user_facade import *
 from facades.like_facade import *
 
-
-
-
 class Test:
 
     def __init__(self):
