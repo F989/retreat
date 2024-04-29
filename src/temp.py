@@ -6,9 +6,9 @@ class Test:
 
     def __init__(self):
             
-            self.vacation = VacationFacade()
-            self.user = UserFacade()
-            self.like = LikeFacade()
+        self.vacation = VacationFacade()
+        self.user = UserFacade()
+        self.like = LikeFacade()
         
   
     def test_get_all_vacations(self):
