@@ -2,16 +2,12 @@ from facades.facade_vacation import *
 from facades.user_facade import *
 from facades.like_facade import *
 
-
-
-
 class Test:
 
     def __init__(self):
-            
-            self.vacation = VacationFacade()
-            self.user = UserFacade()
-            self.like = LikeFacade()
+        self.vacation = VacationFacade()
+        self.user = UserFacade()
+        self.like = LikeFacade()
         
   
     def test_get_all_vacations(self):
@@ -461,4 +457,4 @@ class Test:
         self.all_tests_for_sign_in_for_registered_users()
         self.all_tests_for_vacation_functions()
 
-        explain why self.vacation doesnt work
+        # explain why self.vacation doesnt work
